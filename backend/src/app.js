@@ -1,13 +1,14 @@
 const express = require('express');
 const routes = require('./routes');
 const cors = require('cors')
-
+const {errors} = require('celebrate')
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 app.use(routes);
+app.use(errors());
 
 /*
 //GET: Buscar informações no backend
@@ -24,4 +25,4 @@ app.use(routes);
  * Body: corpo da requisião , criar ou alterar recursos
  */
 
-app.listen(3333);
+module.exports = app;

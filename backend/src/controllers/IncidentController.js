@@ -8,8 +8,6 @@ module.exports = {
     const [count] = await connection('incidents as i')
       .count();
 
-      console.log(count);
-
     const incidents = await connection('incidents as i')
       .leftJoin('ongs as o','o.id', '=','i.ong_id')
       .limit(5)
